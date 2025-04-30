@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swift Details</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            line-height: 1.6;
+        }
+        
+        .car-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .car-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #3498db;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .spec-item {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to All Cars</a>
+    
+    <h1>Swift</h1>
+    <p class="car-type">Compact Suv | Family Vehicle | Off-Road Capable</p>
+    
+    <div class="car-detail">
+        <div>
+            <img src="photos/Maruti-Swift-2018-Review-Specs-In-India-M8.jpg" alt="Swift" class="car-image">
+        </div>
+        <div>
+            <h3>Vehicle Specifications</h3>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <strong>Price:</strong> ₹1,500/day
+                </div>
+                <div class="spec-item">
+                    <strong>Seats:</strong> 5
+                </div>
+                <div class="spec-item">
+                    <strong>Engine:</strong> 1.2L DualJet Petrol
+                </div>
+                <div class="spec-item">
+                    <strong>Mileage:</strong> 22 km/l (City) / 24 km/l (Highway)
+                </div>
+            </div>
+        
+            <h3>Journey History</h3>
+            <ul>
+                <li>Manali - March 2024</li>
+                <li>Jaipur - February 2024</li>
+                <li>Rishikesh - January 2024</li>
+            </ul>
+        
+            <button style="padding: 12px 24px; background: #3498db; color: white; border: none; border-radius: 5px; margin-top: 20px;" >
+                <a href="booking.html" class="book-btn"> Book This Vehicle </a>
+            </button>
+        </div>
+        </div>
+</body>
+</html>

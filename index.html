@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CarRentX - Rent Your Ride</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+
+<!-- Your JS file -->
+<script defer src="script.js"></script>
+
+  
+</head>
+<body>
+  
+
+<!-- Header Section -->
+<header class="main-header">
+    <div class="logo">CarRentX</div>
+    <nav>
+      <ul>
+        <li><a href="login.html">Login</a></li>
+        <!-- <li><a href="signup.html">signup</a></li> -->
+        <li><a href="carselection.html">Select Car</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="renter-details.html">Personal Info</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- Hero Section with Introduction -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Start Your Adventure with CarRentX</h1>
+      <p>Choose your car and explore beautiful destinations. We make renting cars easier and affordable.</p>
+      <a href="start-exploring.html" class="btn">Start Exploring</a>
+    </div>
+    <div class="hero-img">
+        <img src="photos/photo-1628573044443-a41b85b6f630.jpeg" alt="Indian Road Trip" class="hero-image" />
+    </div>
+  </section>
+
+
+  <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .cars-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+    }
+    
+    .car-card {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 15px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+    
+    .car-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        border-color: #3498db;
+    }
+    
+    .car-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    
+    .car-card h3 {
+        margin: 10px 0 5px;
+    }
+    
+    .car-type {
+        color: #7f8c8d;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    <h1 class="popular-heading">🚗 Popular Cars for Your Journey</h1>
+
+    <div class="cars-container-popular">
+      <!-- Swift -->
+      <a href="vehicles.html" class="car-card-popular">
+        <img src="photos/Maruti-Swift-2018-Review-Specs-In-India-M8.jpg" alt="Swift">
+        <div class="car-info">
+          <h3>Swift</h3>
+          <p class="car-type">Hatchback</p>
+          <p>For a thrilling ride on the open road.</p>
+        </div>
+      </a>
+    
+      <!-- Honda City -->
+      <a href="vehicle2.html" class="car-card-popular">
+        <img src="photos/Honda-City-Safety-Advt-web9.jpg" alt="Honda City">
+        <div class="car-info">
+          <h3>Honda City</h3>
+          <p class="car-type">Sedan</p>
+          <p>Feel the breeze with this sleek sedan.</p>
+        </div>
+      </a>
+    
+      <!-- Tata Nexon -->
+      <a href="vehicle3.html" class="car-card-popular">
+        <img src="photos/nexon-kaziranga-13.jpg" alt="Tata Nexon">
+        <div class="car-info">
+          <h3>Tata Nexon</h3>
+          <p class="car-type">Crossover SUV</p>
+          <p>Perfect for family trips and off-road adventures.</p>
+        </div>
+      </a>
+    </div>
+    
+    <style>
+    .popular-heading {
+      text-align: center;
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+    
+    .cars-container-popular {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      padding: 0 20px;
+    }
+    
+    .car-card-popular {
+      width: 280px;
+      text-decoration: none;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      color: inherit;
+    }
+    
+    .car-card-popular:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .car-card-popular img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    
+    .car-info {
+      padding: 15px;
+      text-align: center;
+    }
+    
+    .car-info h3 {
+      margin: 10px 0 5px;
+      font-size: 1.2rem;
+      color: #34495e;
+    }
+    
+    .car-type {
+      font-weight: bold;
+      color: #3498db;
+      margin-bottom: 10px;
+    }
+    </style>
+    
+ <!-- Travel Locations Section -->
+<section class="travel-locations">
+    <h2>🌍 Where Our Cars Have Been</h2>
+    <p class="subtitle">Epic destinations made better with CarRentX rides.</p>
+    <div class="locations">
+      <div class="location-card">
+        <img src="photos/pexels-mohit-hambiria-92377455-19992232.jpg" alt="Manali Road Trip">
+        <h3>Manali</h3>
+        <p>"Gateway to the Himalayas - Where Adventure Meets Serenity"</p>
+      </div>
+      <div class="location-card">
+        <img src="photos/pexels-fotoholic-studio-1265102260-23996214.jpg" alt="Rajasthan Deserts">
+        <h3>Rajasthan</h3>
+        <p>"From Majestic Forts to Golden Dunes – Discover Rajasthan’s Magic"</p>
+      </div>
+      <div class="location-card">
+        <img src="photos/ChatGPT Image Apr 22, 2025, 11_19_34 PM.png" alt="Taj Mahal">
+        <h3>Taj Mahal</h3>
+        <p>"The Crown Jewel of India – A Wonder in White"</p>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+  .travel-locations {
+    padding: 50px 20px;
+    background: #fdfdfd;
+    text-align: center;
+  }
+  
+  .travel-locations h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+  }
+  
+  .travel-locations .subtitle {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 40px;
+  }
+  
+  .locations {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+  .location-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .location-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .location-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  .location-card h3 {
+    margin: 15px 0 5px;
+    color: #34495e;
+    font-size: 1.2rem;
+  }
+  
+  .location-card p {
+    color: #666;
+    font-size: 0.95rem;
+    padding: 0 15px 20px;
+  }
+  </style>
+  
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <p>&copy; 2025 CarRentX. All rights reserved.</p>
+  </footer>
+
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBeJ4DvsyLrpXgGlNK-Zv90yrPTk4fOGBU",
+      authDomain: "car-rental-e4e22.firebaseapp.com",
+      projectId: "car-rental-e4e22",
+      storageBucket: "car-rental-e4e22.firebasestorage.app",
+      messagingSenderId: "237550513034",
+      appId: "1:237550513034:web:1872b5420ad85178b5f673"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
+  
+
+</body>
+</html>

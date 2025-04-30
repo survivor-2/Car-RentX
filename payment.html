@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    .booking-details {
+      background-color: #f1f1f1;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .booking-details p {
+      margin: 8px 0;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Confirm Your Booking</h2>
+  <div class="booking-details" id="bookingSummary">
+    <p>Loading booking details...</p>
+  </div>
+
+  <form id="paymentForm">
+    <label for="upiId">Enter UPI ID</label>
+    <input type="text" id="upiId" name="upiId" placeholder="e.g. username@upi" required />
+
+    <button type="submit">Pay Now</button>
+  </form>
+</div>
+
+<script>
+  // Load booking details from localStorage
+  const booking = JSON.parse(localStorage.getItem("bookingDetails"));
+  const summary = document.getElementById("bookingSummary");
+
+  if (booking) {
+    summary.innerHTML = `
+      <p><strong>Full Name:</strong> ${booking.name}</p>
+      <p><strong>Email:</strong> ${booking.email}</p>
+      <p><strong>Pickup Location:</strong> ${booking.pickupLocation}</p>
+      <p><strong>Date of Pickup:</strong> ${booking.dop}</p>
+      <p><strong>Car Type:</strong> ${booking.carType}</p>
+    `;
+  } else {
+    summary.innerHTML = "<p>No booking details found. Please go back and fill the form.</p>";
+  }
+
+  // Handle UPI Payment (Demo)
+  document.getElementById('paymentForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const upiId = document.getElementById('upiId').value;
+
+    if (!upiId.includes('@')) {
+      alert("Please enter a valid UPI ID.");
+      return;
+    }
+
+    alert("Payment initiated via UPI ID: " + upiId + "\n\n(This is a demo. Payment not actually processed.)");
+    localStorage.removeItem("bookingDetails"); // clear after successful payment
+    window.location.href = "confirmation.html"; // optionally redirect
+  });
+</script>
+
+</body>
+</html>

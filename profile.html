@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Renter Details | CarRentX</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .details-container {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #f4f4f4;
+      border-radius: 10px;
+    }
+
+    .details-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .details-container input,
+    .details-container textarea,
+    .details-container select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .details-container button {
+      width: 100%;
+      padding: 12px;
+      background-color: #1e88e5;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .details-container button:hover {
+      background-color: #1565c0;
+    }
+  </style>
+
+  <!-- Firebase Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+</head>
+<body>
+
+  <div class="details-container">
+    <h2>Provide Your Renter Details</h2>
+    <form id="renterForm">
+      <input type="text" id="fullName" placeholder="Full Name" required>
+      <input type="tel" id="phoneNumber" placeholder="Phone Number" required>
+      <input type="email" id="email" placeholder="Email Address" required>
+      <input type="text" id="licenseNumber" placeholder="Driving License Number" required>
+      <label for="licenseImage">Upload Driving License (Image/PDF):</label>
+      <input type="file" id="licenseImage" accept="image/*,.pdf" required>
+
+      <textarea id="address" placeholder="Your Address" rows="4" required></textarea>
+
+      <button type="submit">Submit Details</button>
+    </form>
+  </div>
+
+  <script>
+    // Firebase Config (Replace with your own)
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const storage = firebase.storage();
+
+    const form = document.getElementById("renterForm");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const fullName = document.getElementById("fullName").value;
+      const phoneNumber = document.getElementById("phoneNumber").value;
+      const email = document.getElementById("email").value;
+      const licenseNumber = document.getElementById("licenseNumber").value;
+      const address = document.getElementById("address").value;
+      const licenseImage = document.getElementById("licenseImage").files[0];
+
+      if (!licenseImage) {
+        alert("Please upload your license image.");
+        return;
+      }
+
+      try {
+        const storageRef = storage.ref(`licenses/${licenseImage.name}`);
+        await storageRef.put(licenseImage);
+        const licenseURL = await storageRef.getDownloadURL();
+
+        await db.collection("renterDetails").add({
+          fullName,
+          phoneNumber,
+          email,
+          licenseNumber,
+          address,
+          licenseURL,
+          submittedAt: new Date()
+        });
+
+        alert("Details submitted successfully!");
+        console.log("Redirecting to payment page...");
+        form.reset();
+        window.location.href = "payment.html";
+
+      } catch (error) {
+        console.error("Error saving details:", error);
+        alert("Error submitting your details. Try again.");
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <title>Renter Details | CarRentX</title> <link rel="stylesheet" href="style.css"> <style> .details-container { max-width: 500px; margin: 50px auto; padding: 30px; background: #f4f4f4; border-radius: 10px; }

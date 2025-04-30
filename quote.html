@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get a Quote - Car Rental</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Get a Quote Form -->
+    <div class="form-container">
+        <h2>Get a Car Rental Quote</h2>
+        <form id="quote-form">
+            <label for="car-type">Select Car Type:</label>
+            <select id="car-type">
+                <option value="sedan">Sedan</option>
+                <option value="suv">SUV</option>
+                <option value="hatchback">Hatchback</option>
+            </select>
+
+            <label for="rental-days">Number of Rental Days:</label>
+            <input type="number" id="rental-days" placeholder="Enter number of days" min="1" required>
+
+            <label for="insurance">Add Insurance (₹1000 per day):</label>
+            <input type="checkbox" id="insurance">
+
+            <label for="gps">Add GPS (₹500 per day):</label>
+            <input type="checkbox" id="gps">
+
+            <button type="submit">Get Quote</button>
+        </form>
+
+        <!-- Quote result section will appear here -->
+        <div id="quote-result" class="quote-result" style="display: none;">
+            <h3>Your Quote:</h3>
+            <p id="quote"></p>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle quote calculation -->
+    <script>
+        // Handle the form submission
+        document.getElementById('quote-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission and page reload
+
+            // Get values from the form
+            const carType = document.getElementById('car-type').value;
+            const rentalDays = parseInt(document.getElementById('rental-days').value);
+            const insurance = document.getElementById('insurance').checked;
+            const gps = document.getElementById('gps').checked;
+
+            // Pricing based on car type (prices in INR)
+            let basePrice = 0;
+            switch (carType) {
+                case 'sedan':
+                    basePrice = 2000; // ₹2000 per day for Sedan
+                    break;
+                case 'suv':
+                    basePrice = 3000; // ₹3000 per day for SUV
+                    break;
+                case 'hatchback':
+                    basePrice = 1500; // ₹1500 per day for Hatchback
+                    break;
+            }
+
+            // Calculate the cost for insurance and GPS
+            const insuranceCost = insurance ? 1000 * rentalDays : 0; // ₹1000 per day for insurance
+            const gpsCost = gps ? 500 * rentalDays : 0; // ₹500 per day for GPS
+
+            // Total cost
+            const totalCost = (basePrice * rentalDays) + insuranceCost + gpsCost;
+
+            // Prepare the quote result message
+            const quoteText = `Car Type: ${carType.charAt(0).toUpperCase() + carType.slice(1)}<br>
+                               Number of Days: ${rentalDays}<br>
+                               Insurance: ₹${insuranceCost}<br>
+                               GPS: ₹${gpsCost}<br>
+                               <strong>Total: ₹${totalCost}</strong>`;
+
+            // Display the quote
+            document.getElementById('quote').innerHTML = quoteText;
+            document.getElementById('quote-result').style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>

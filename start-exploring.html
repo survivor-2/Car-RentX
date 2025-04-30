@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start Exploring | CarRentX</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Start Your Adventure with CarRentX</h1>
+  </header>
+
+  <!-- <section class="search-filter">
+    <h2>Search & Filter</h2>
+    <input type="text" id="carSearch" placeholder="Search for cars or locations">
+    <select id="carType">
+      <option value="SUV">SUV</option>
+      <option value="Sedan">Sedan</option>
+      <option value="Convertible">Convertible</option>
+    </select>
+    <input type="number" id="priceRange" placeholder="Max Price" min="0">
+    <select id="location">
+      <option value="Delhi">Delhi</option>
+      <option value="Goa">Goa</option>
+      <option value="Mumbai">Mumbai</option>
+    </select>
+    <button id="searchButton">Search</button>
+  </section> -->
+
+  <section class="featured-cars">
+    <h2>🚗 Featured Cars</h2>
+    <div class="car-carousel">
+      <div class="car-card">
+        <img src="photos/baleno.jpg" alt="Baleno">
+        <div class="car-info">
+          <h3>Maruti Baleno</h3>
+          <p>Price: ₹3000/day</p>
+        </div>
+      </div>
+      <div class="car-card">
+        <img src="photos/ChatGPT Image Apr 22, 2025, 11_19_34 PM.png" alt="Sedan Model Y">
+        <div class="car-info">
+          <h3>Sedan Model Y</h3>
+          <p>Price: ₹2500/day</p>
+        </div>
+      </div>
+      <div class="car-card">
+        <img src="photos/pexels-sw-ld-147012990-31712615.jpg" alt="Convertible Model Z">
+        <div class="car-info">
+          <h3>Convertible Model Z</h3>
+          <p>Price: ₹3500/day</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    .featured-cars {
+      padding: 40px 20px;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+  
+    .featured-cars h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+  
+    .car-carousel {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  
+    .car-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      width: 280px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+  
+    .car-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+  
+    .car-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+  
+    .car-info {
+      padding: 15px;
+      text-align: center;
+    }
+  
+    .car-info h3 {
+      font-size: 1.2rem;
+      margin: 10px 0 5px;
+      color: #34495e;
+    }
+  
+    .car-info p {
+      font-size: 1rem;
+      color: #e67e22;
+      margin: 0;
+    }
+  
+    @media screen and (max-width: 768px) {
+      .car-carousel {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+  
+
+  <section class="popular-destinations">
+    <h2>Popular Destinations</h2>
+    <div class="map-container">
+      <!-- Use a map API or image here for destination map -->
+    <div>
+        <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.83913930857!2d77.06889754743187!3d28.527582000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1c6b3ad8c9f3%3A0x9df6d711e49c4b7c!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1684400751362!5m2!1sen!2sin" 
+        width="100%" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+
+      </iframe>
+      
+    </div>
+    <ul>
+      <li><strong>Goa Beaches</strong></li>
+      <li><strong>Leh Ladakh</strong></li>
+      <li><strong>Jaipur Fort</strong></li>
+      <li><strong>Taj Mahal, Agra</strong></li>
+    </ul>
+  </section>
+
+  <section class="special-deals">
+    <h2>Special Deals & Offers</h2>
+    <div class="deal-card">
+      <p><strong>Book for 5 days, get 1 day free!</strong></p>
+    </div>
+    <div class="deal-card">
+      <p><strong>Seasonal Discount: 15% off on all rentals in December!</strong></p>
+    </div>
+  </section>
+
+  <section class="customer-reviews">
+    <h2>Customer Reviews</h2>
+    <div class="testimonial">
+      <p>"Had an amazing experience renting a car for my trip to Goa. Highly recommended!" - Rajesh</p>
+    </div>
+    <div class="testimonial">
+      <p>"The SUV was perfect for our family road trip to Leh Ladakh. Great service!" - Priya</p>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Book Your Car Now!</h2>
+    <button onclick="window.location.href='booking.html'">Rent a Car</button>
+    <button onclick="window.location.href='quote.html'">Get a Quote</button>
+  </section>
+
+  <section class="road-trip">
+    <h2>Road Trip Inspiration</h2>
+    <ul>
+      <li><strong>Delhi to Rajasthan</strong></li>
+      <li><strong>Goa to Kerala</strong></li>
+      <li><strong>Mumbai to Gujarat</strong></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 CarRentX | All Rights Reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
