@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Select a Car | CarRentX</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">CarRentX</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="booking.html">Booking</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <style>
+      body {
+          font-family: 'Arial', sans-serif;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: #f5f5f5;
+      }
+      
+      h1 {
+          text-align: center;
+          color: #333;
+          margin-bottom: 40px;
+      }
+      
+      .cars-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 30px;
+      }
+      
+      .car-card {
+          background: white;
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+          transition: transform 0.3s ease;
+      }
+      
+      .car-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      }
+      
+      .car-image {
+          width: 100%;
+          height: 180px;
+          object-fit: cover;
+      }
+      
+      .car-details {
+          padding: 20px;
+      }
+      
+      .car-category {
+          font-size: 1.2rem;
+          font-weight: bold;
+          margin: 0 0 10px 0;
+          color: #2c3e50;
+      }
+      
+      .car-price {
+          font-size: 1.5rem;
+          color: #e74c3c;
+          margin: 0 0 15px 0;
+      }
+      
+      .car-specs {
+          margin: 15px 0;
+          padding: 0;
+          list-style: none;
+      }
+      
+      .car-specs li {
+          margin-bottom: 8px;
+          display: flex;
+          align-items: center;
+      }
+      
+      .car-specs li::before {
+          content: "•";
+          color: #3498db;
+          margin-right: 8px;
+      }
+      
+      .book-btn {
+          display: block;
+          width: 100%;
+          padding: 12px;
+          background: #3498db;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          font-size: 1rem;
+          font-weight: bold;
+          cursor: pointer;
+          transition: background 0.3s;
+          text-align: center;
+          text-decoration: none;
+      }
+      
+      .book-btn:hover {
+          background: #2980b9;
+      }
+  </style>
+</head>
+<body>
+  <h1>Choose Your Ride</h1>
+  
+  <div class="cars-container">
+      <!-- Hatchback (Maruti Suzuki Swift) -->
+      <div class="car-card">
+          <img src="photos/Maruti-Swift-2018-Review-Specs-In-India-M8.jpg" alt="Maruti Suzuki Swift" class="car-image">
+          <div class="car-details">
+              <h3 class="car-category">Maruti Suzuki Swift</h3>
+              <p class="car-price">₹1,200/day</p>
+              <ul class="car-specs">
+                  <li>5 Seats</li>
+                  <li>Petrol (1.2L K-Series)</li>
+                  <li>Manual Transmission</li>
+                  <li>Mileage: 21-23 kmpl</li>
+                  <li>Air Conditioning</li>
+              </ul>
+              <a href="booking.html" class="book-btn">Book Now</a>
+
+
+          </div>
+      </div>
+      
+      <!-- Sedan (Honda City) -->
+      <div class="car-card">
+          <img src="photos/Honda-City-Safety-Advt-web9.jpg" alt="Honda City" class="car-image">
+          <div class="car-details">
+              <h3 class="car-category">Honda City</h3>
+              <p class="car-price">₹1,800/day</p>
+              <ul class="car-specs">
+                  <li>5 Seats</li>
+                  <li>Petrol (1.5L i-VTEC)</li>
+                  <li>Automatic (CVT)</li>
+                  <li>Mileage: 17-18 kmpl</li>
+                  <li>Sunroof Available</li>
+              </ul>
+              <a href="booking.html" class="book-btn">Book Now</a>
+
+          </div>
+      </div>
+      
+      <!-- SUV (Hyundai Creta) -->
+      <div class="car-card">
+          <img src="photos/pexels-yogendras31-23534116.jpg" alt="Hyundai Creta" class="car-image">
+          <div class="car-details">
+              <h3 class="car-category">Hyundai Creta</h3>
+              <p class="car-price">₹2,500/day</p>
+              <ul class="car-specs">
+                  <li>5 Seats</li>
+                  <li>Diesel (1.5L CRDi)</li>
+                  <li>Automatic (DCT)</li>
+                  <li>Mileage: 16-18 kmpl</li>
+                  <li>Panoramic Sunroof</li>
+              </ul>
+              <a href="booking.html" class="book-btn">Book Now</a>
+
+
+          </div>
+      </div>
+      
+      <!-- Luxury (Mercedes-Benz C-Class) -->
+      <div class="car-card">
+          <img src="photos/images.jpeg" alt="Mercedes C-Class" class="car-image">
+          <div class="car-details">
+              <h3 class="car-category">Mercedes C-Class</h3>
+              <p class="car-price">₹6,500/day</p>
+              <ul class="car-specs">
+                  <li>5 Seats</li>
+                  <li>Petrol (2.0L Turbo)</li>
+                  <li>Automatic (9G-Tronic)</li>
+                  <li>Mileage: 12-14 kmpl</li>
+                  <li>Premium Leather Seats</li>
+              </ul>
+              <a href="booking.html" class="book-btn">Book Now</a>
+
+            </div>
+          </div>
+
+
+          
+          <footer class="footer">
+            <p>&copy; 2025 CarRentX. All rights reserved.</p>
+          </footer>
+</body>
+</html>
